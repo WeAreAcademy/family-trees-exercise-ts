@@ -22,10 +22,10 @@ async function mainProgram() {
   printBanner("All people in STARK")
   logAllPeopleInTree(createStarkTree());
 
-  // printBanner("WITH STACK - british royals")
-  // logAllPeopleInTree(createBritishSuccessionTree());
-  // printBanner("WITH QUEUE - british royals")
-  // logAllPeopleInTreeWithQueue(createBritishSuccessionTree());
+  printBanner("WITH STACK - british royals")
+  logAllPeopleInTree(createBritishSuccessionTree());
+  printBanner("WITH QUEUE - british royals")
+  logAllPeopleInTreeWithQueue(createBritishSuccessionTree());
 
   // You'll need to add more test code for later exercises, too.
 }

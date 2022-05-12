@@ -2,19 +2,33 @@ import { Person } from "./personTypes";
 
 
 export function logAllPeopleInTree(topPerson: Person): void {
-    const peopleStack: Person[] = []
+    let peopleStack: Person[] = []
     peopleStack.push(topPerson)
+    let counter = 1
     while(peopleStack.length > 0){
-        console.log("Person: ", peopleStack[0].name)
-        for (const child of topPerson.children){
-            peopleStack.push(child)
+        const person = peopleStack.pop()
+        if (person){
+            console.log(`Person ${counter}: `, person.name)
+            counter ++
+            for (const child of person.children){
+                peopleStack.push(child)
+            }
         }
-        peopleStack.shift()
     }
 }
 
 export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
-    console.log("TODO!  First person is " + topPerson.name);
+    let peopleStack: Person[] = []
+    peopleStack.push(topPerson)
+    let counter = 1
+    while(peopleStack.length > 0){
+        console.log(`Person ${counter} : `, peopleStack[0].name)
+        counter ++
+        for (const child of peopleStack[0].children){
+            peopleStack.push(child)
+        }
+        peopleStack.shift()
+    }
 }
 
 
@@ -27,6 +41,27 @@ only two ways:
 - an item can be placed on “top” of the stack
 
 It’s normally also possible to check if it is empty, without trying to remove the top item.
+
+
+PSEUDOCODE FOR logAllPeopleInTreeWithQueue
+Inputs : TOP-PERSON (Person)
+Returns : void
+
+set PEOPLE-STACK as an empty array
+add TOP-PERSON into PEOPLE-STACK
+
+while PEOPLE-STACK is not empty do
+    log out the name of the person in the first element of PEOPLE-STACK
+    for any CHILD of the person in the first element of PEOPLE-STACK do
+        add CHILD to the end of PEOPLE-STACK
+    end for
+    remove first element from PEOPLE-STACK
+end while
+*/
+
+
+
+/* OLD PSEUDOCODE
 
 function logAllPeopleInTree(topPerson)
     create an empty stack of People
