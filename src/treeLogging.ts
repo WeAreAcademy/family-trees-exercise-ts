@@ -1,34 +1,34 @@
 import { Person } from "./personTypes";
 
 
-export function logAllPeopleInTree(topPerson: Person): void {
+export function logAllPeopleInTree(topPerson: Person): string[] {
+    const listOfNames = []
     let peopleStack: Person[] = []
     peopleStack.push(topPerson)
-    let counter = 1
-    while(peopleStack.length > 0){
+    while (peopleStack.length > 0) {
         const person = peopleStack.pop()
-        if (person){
-            console.log(`Person ${counter}: `, person.name)
-            counter ++
-            for (const child of person.children){
-                peopleStack.push(child)
+        if (person) {
+            listOfNames.push(person.name)
+            for (const child of person.children) {
+                peopleStack.splice(0, 0, child)
             }
         }
     }
+    return listOfNames
 }
 
-export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
+export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
+    const listOfNames = []
     let peopleStack: Person[] = []
     peopleStack.push(topPerson)
-    let counter = 1
-    while(peopleStack.length > 0){
-        console.log(`Person ${counter} : `, peopleStack[0].name)
-        counter ++
-        for (const child of peopleStack[0].children){
+    while (peopleStack.length > 0) {
+        listOfNames.push(peopleStack[0].name)
+        for (const child of peopleStack[0].children) {
             peopleStack.push(child)
         }
         peopleStack.shift()
     }
+    return listOfNames;
 }
 
 
@@ -67,9 +67,9 @@ function logAllPeopleInTree(topPerson)
     create an empty stack of People
     put the topPerson onto the top of this new stack
 
-		repeat the following as long as the stack is not empty:
-		    take the top person from the stack
-				console log their name
+        repeat the following as long as the stack is not empty:
+            take the top person from the stack
+                console log their name
         add their kids to the top of the stack of people (in any order)
 
 */
