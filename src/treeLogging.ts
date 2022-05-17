@@ -31,6 +31,36 @@ export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
     return listOfNames;
 }
 
+export function countNumberOfPeeps(topPerson: Person): number {
+    const listOfNames = []
+    let peopleStack: Person[] = []
+    peopleStack.push(topPerson)
+    while (peopleStack.length > 0) {
+        listOfNames.push(peopleStack[0].name)
+        for (const child of peopleStack[0].children) {
+            peopleStack.push(child)
+        }
+        peopleStack.shift()
+    }
+    return listOfNames.length;
+}
+
+
+export function countNumberOfPeeps2(topPerson: Person): number {
+    const listOfNames = []
+    let counter = 0
+    let peopleStack: Person[] = []
+    peopleStack.push(topPerson)
+    while (peopleStack.length > 0) {
+        listOfNames.push(peopleStack[0].name)
+        counter ++
+        for (const child of peopleStack[0].children) {
+            peopleStack.push(child)
+        }
+        peopleStack.shift()
+    }
+    return counter
+}
 
 
 /*
