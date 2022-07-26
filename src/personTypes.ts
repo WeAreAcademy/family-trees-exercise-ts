@@ -1,4 +1,4 @@
 export interface Person {
-    children: Person[];
-    name: string;
+  children: Person[];
+  name: string;
 }
