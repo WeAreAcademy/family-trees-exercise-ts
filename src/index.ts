@@ -8,11 +8,11 @@ import { printBanner } from "./utils/bannerUtils";
 import { printPersonTreeAsAscii } from "./utils/toAsciiTree";
 
 async function mainProgram() {
-  printBanner("BARATHEON");
-  printPersonTreeAsAscii(createBaratheonTree());
+  // printBanner("BARATHEON");
+  // printPersonTreeAsAscii(createBaratheonTree());
 
-  printBanner("STARK");
-  printPersonTreeAsAscii(createStarkTree());
+  // printBanner("STARK");
+  // printPersonTreeAsAscii(createStarkTree());
 
   // Uncomment to test your work..
 
@@ -20,10 +20,10 @@ async function mainProgram() {
   // printPersonTreeAsAscii(createLannisterTree());
 
   // printBanner("All people in STARK")
-  logAllPeopleInTree(createStarkTree());
+  // logAllPeopleInTree(createStarkTree());
 
   // printBanner("WITH STACK - british royals")
-  // logAllPeopleInTree(createBritishSuccessionTree());
+  logAllPeopleInTreeWithQueue(createBritishSuccessionTree());
   // printBanner("WITH QUEUE - british royals")
   // logAllPeopleInTreeWithQueue(createBritishSuccessionTree());
 
