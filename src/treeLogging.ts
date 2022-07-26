@@ -19,6 +19,17 @@ ENDWHILE
 */
 export function logAllPeopleInTree(topPerson: Person): void {
   const stackArr: Person[] = [];
+  stackArr.push(topPerson);
+
+  while (stackArr.length > 0) {
+    const topPerson = stackArr.pop();
+    console.log(topPerson?.name);
+    topPerson?.children.forEach((child) => stackArr.push(child));
+  }
+}
+
+export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
+  const stackArr: Person[] = [];
   stackArr.unshift(topPerson);
 
   while (stackArr.length > 0) {
@@ -26,8 +37,4 @@ export function logAllPeopleInTree(topPerson: Person): void {
     console.log(topPerson?.name);
     topPerson?.children.forEach((child) => stackArr.unshift(child));
   }
-}
-
-export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
-  console.log("TODO!  First person is " + topPerson.name);
 }
