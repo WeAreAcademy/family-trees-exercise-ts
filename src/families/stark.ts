@@ -18,5 +18,9 @@ const richardsKids : Person[] = [
     {name: "Brandon" , children : []},
 ]
 
-    return { name: "Richard", children: ["Eddard", ] };
+
+const topPerson2 : Person = { name: "Richard", children: richardsKids };
+
+
+    return topPerson2;
 }
