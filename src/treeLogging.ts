@@ -13,10 +13,12 @@ import { createStarkTree } from "./families/stark";
 
 export function logAllPeopleInTree(createStarkTree: Person): void {
   const workStack = [];
-
+  workStack.push(createStarkTree.name);
   console.log("First person is " + createStarkTree.name);
 }
 
 export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
   console.log("TODO!  First person is " + topPerson.name);
 }
+
+console.log(logAllPeopleInTree(createStarkTree()));
